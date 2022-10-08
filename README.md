@@ -2,6 +2,6 @@
 Author: M Lacerda (matheus016@gmail.com)
 
 ## Pre-requirements.
-[] C++ compiler.
-[] Any IDE.
-[] Your preferred bash.
+- C++ compiler.
+- Any IDE.
+- Your preferred bash.
