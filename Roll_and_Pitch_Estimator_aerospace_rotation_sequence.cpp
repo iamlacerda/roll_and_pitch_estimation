@@ -1,4 +1,5 @@
 #define _USE_MATH_DEFINES
+#define _CRT_SECURE_NO_WARNINGS
 
 #include <iostream> 
 #include <cmath> 
@@ -6,6 +7,9 @@
 #include <string>
 #include <sstream>
 #include <cstdio>
+#include <chrono>
+#include <ctime>
+
 
 using namespace std;
 
@@ -34,6 +38,7 @@ private:
 
 	void read_input()
 	{
+		tic_tac("Starting to read the data input.");
 		string line_content, column_content;
 		ifstream log_file(INPUT_FILE);
 		while (getline(log_file, line_content))
@@ -48,6 +53,8 @@ private:
 			line++;
 		}
 		log_file.close();
+		tic_tac("End to parse the data input, and starting to Calculate Pitch and Roll Estimated Angles.");
+
 	}
 
 
@@ -58,8 +65,10 @@ private:
 		{
 			roll[j] = estimate_roll(matrice[j][2], matrice[j][3]);
 			pitch[j] = estimate_pitch(matrice[j][1], matrice[j][2], matrice[j][3]);
-			cout << j << "- pitch:" << pitch[j] << " | roll:" << roll[j] << endl;
+			//cout << j << "- pitch:" << pitch[j] << " | roll:" << roll[j] << endl;
 		}
+		cout << "Number of iterations: " << j << endl;
+		tic_tac("Calculations on Pitch and Roll Estimated Angles Completed and starting to Elaborate the data Output..");
 	}
 
 
@@ -74,6 +83,7 @@ private:
 			out_file.write(line_text.c_str(), line_text.length());
 		}
 		out_file.close();
+		tic_tac("The data Output for the Pitch and Roll Estimated angles are now available in the file 'Roll_and_Pitch_Estimation.txt'.");
 	}
 
 
@@ -95,7 +105,15 @@ private:
 		sscanf_s(data_column.c_str(), "%f", &i);
 		return i;
 	}
+
+	void tic_tac(string message)
+	{
+		auto message_time = chrono::system_clock::now();
+		time_t text_for_time = chrono::system_clock::to_time_t(message_time);
+		cout << ctime(&text_for_time) << message << endl;
+	}
 };
+
 
 int main()
 {

@@ -30,12 +30,11 @@ On console, it is shown the angles as calculation are made.
 
 Once the application ends, a table naming Roll_and_Pitch_Estimations.txt is expected into the Project folder.
 
-It will have the time stamps, alongside with the angles for Pitch and Roll estimated for all the marks.
+It will have the time stamps, alongside with the estimated angles for Pitch and Roll for all marks.
+
 
 ## Known Bugs
-It will not overwrite the table generated. For a new visualization
-it is necessary to delete the Roll_and_Pitch_Estimations.txt archive in Project folder,
-and run the application again.
+It will not overwrite the table generated. For a new visualization it is necessary to delete the Roll_and_Pitch_Estimations.txt archive in Project folder, and run the application again.
 
 ## License
 
